@@ -6,5 +6,11 @@ output: html_document
 ---
 
 (Please note: this document has been written collaboratively, but complied
-within R by Joshua Reitinger)
+within R by Joshua Reitinger. Different sections have been named by their
+author.)
+
+
+
+Code (Joshua Reitinger): Currently, we are stuck on this section, which has
+halted all progress. We've tried multiple methods 
 
