@@ -9,8 +9,93 @@ output: html_document
 within R by Joshua Reitinger. Different sections have been named by their
 author.)
 
+Abstract (Andre Bergeron): AlphaEarth enables the development of high-resolution 
+annual land-cover datasets suitable for monitoring change at scale. One of the 
+key use cases which AlphaEarth data has been used for is tracking agricultural 
+expansion, land degradation, and other environmental changes. This is especially 
+valuable in many African countries, such as Zambia, where data gaps and 
+fast-changing land systems make timely, accurate mapping essential. Mapping 
+water bodies is one of the methods that can be used to map the spatial 
+distribution of water accessibility which is in high demand due to the region's 
+arid climate and rough terrain. Using machine learning methods 
+(i.e. random forest) to predict water bodies is a great way to assess where 
+these water bodies are, and when validated with other data, such as Sentinel-2 
+satellite imagery, can provide higher accuracy as to the location of these 
+water bodies. The objective of this project is to evaluate the accuracy of 
+training data sample size on land cover classification predictions using a 
+random forest model (specific attention to water bodies). We will train our 
+model with data from alpha earth and run 3 separate tests, with different 
+training data sample sizes. To evaluate the accuracy of our model in predicting 
+water bodies, we will compare our outputs with Sentinel-2 data using a confusion 
+matrix. The predictions will be made for the country of Zambia using GEE data, 
+both in the form of AlphaEarth data and Sentinel-2 data. This will result in 
+three separate output images, with one determined to be the most effective at 
+the task. Overall, the project will take experimental data and test its 
+effectiveness against tried and tested data, acting as a benchmark.
 
+Approach and Methods(Jonathan Solomon): The workflow at this time is as follows:
+
+  *Create three training datasets by randomly sampling labeled data at 
+  different sizes. 
+  *Train three separate Random Forest classifiers, 
+  one on each training dataset, using the 64 embedding dimensions as predictors.
+  *Evaluate model performance using a confusion matrix.
+  *Validate outputs by comparing results with Sentinel-2 data.
+  *Creating plots to visualize variable importance, e.g., 
+  evaluating which embedding dimensions contribute most to 
+  landcover classification.
+
+Data (Andre Bergeron): Alpha Earth’s annual embeddings are high resolution 
+(10 meter)  AI-generated land cover classifications that merge various rich 
+earth observation data that produces across the entire globe. Based on large 
+abundances of observational satellite data, the data has significantly 
+contributed to scientific mapping efficiency, mapping unmapped regions, and 
+land cover change. The AlphaEarth data is publicly available for download 
+through Google Earth Engine, which can be accessible in R using the rgee 
+package. 
+
+Data | Temporal Res. | Data Type  | Coverage | Resolution 
+AlphaEarth | 2017-Present | Raster | Global | 10 meters
+Sentinel-2 | 2015-Present | Raster | Global | 10 meter
+Admin. Bounds | N/A | Vector | N/A | N/A
 
 Code (Joshua Reitinger): Currently, we are stuck on this section, which has
-halted all progress. We've tried multiple methods 
+halted all progress. We've tried multiple methods, but all have simply lead us
+in circles. It is possible that the solution will present itself by Monday,
+but we will likely require assistance. As such, I do not have code to display
+at the moment. However, I can generalize the code expectation at the moment:
 
+  *Import GEE Dataset(Andre and I have attempted this thus far. It should
+  include both AlphaEarth Foundations and Sentinel-2 Data)
+  *Format appropriate bands
+  *Test clusters
+
+The libraries we believe will be used:
+  *rgee
+  *randomForest
+  *Geospaar
+  *Tidyverse
+  *Dpylr
+  *Ggplot2
+  *CDSE? (sentinel-2)
+  
+Task Delineations (Joshua Reitinger): This section will by far be the one most
+subject to change. Right now, the general workflow is as follows: Andre is the
+brains who comes up with ideas, Jonathan supports Andre by sharing his own ideas 
+and working on a solution, and Joshua works on the technical solutions to the
+problems within R. There is not a clearly defined deliniation between work at
+the moment, other than that most of the R work has been completed by Joshua
+(myself), following directions of Andre and Jonathan.
+
+Timelines(Joshua Reitinger): By 11/25, we should have found a way to import 
+GEE datainto R, currently the subject of challenges. Once that is done, 
+the rest of the process will be much faster. By 12/5, we should have all the
+preliminary data accounted for (analysis, comparison to sentinel-2). By 12/12,
+we should have the vignette prepared with writing and clean visuals. Of course,
+this may be subject to change.
+
+Anticipated Deliverables(Joshua Reitinger): The deliverables should include
+three separate output maps, one for each sample size. It should also include 
+three principal component analyses (or change matricies) which will be obtained 
+through Sentinel-2 data. And of course, a written analysis of the results will
+be the primary component of the final vignette.
