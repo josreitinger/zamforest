@@ -8,6 +8,7 @@ install.packages("reticulate")
 reticulate::install_miniconda()
 
 library(rgee)
+library(rstudioapi)
 ee_Initialize()
 
 ee_install_set_pyenv("/home/rstudio/.cache/R/reticulate/uv/cache/archive-v0/v-mHIZ3fznWft6LbliK4O/bin/python")
