@@ -5,10 +5,13 @@ library(devtools)
 #AI told me to use miniconda, but that has not proven successful.
 
 install.packages("reticulate")
-reticulate::install_miniconda(Documents/miniconda3)
+reticulate::install_miniconda()
 
 library(rgee)
 ee_Initialize()
+
+ee_install_set_pyenv("/home/rstudio/.cache/R/reticulate/uv/cache/archive-v0/v-mHIZ3fznWft6LbliK4O/bin/python")
+ee_install(py_env = "rgee", earthengine_version = ee_version(), python_version = "3.13", confirm = interactive())
 
 # Error in ee_connect_to_py(path = ee_current_version, n = 5) :
 #   The current Python PATH:
