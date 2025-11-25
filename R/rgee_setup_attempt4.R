@@ -17,5 +17,3 @@ rgee::ee_install_set_pyenv(
 rgee::ee_check()
 
 reticulate::py_install('earthengine-api==1.6.11', py_env = "rgee")
-
-#Testing for commit
